@@ -5,7 +5,14 @@
   --font-bold: HelviticaBold, Helvetica, Arial, sans-serif;
   --font-thin: HelviticaThin, Helvetica, Arial, sans-serif;
   --font-medium: HelviticaMediuim, Helvetica, Arial, sans-serif;
-  --page-background-color: #E6ECF0;
+  --brand-color: #1DA1F2;
+  --text-color: #14171A;
+  --accent-color: #657786;
+  --accent-light-color: #AAB8C2;
+  --accent-extra-light-color: #E1E8ED;
+  --accent-extra-extra-light-color: #F5F8FA;
+  --color-heart: pink;
+  --color-comment: green;
 }
 
 html, body {
@@ -15,6 +22,6 @@ html, body {
 body {
   font-family: var(--font-light) !important;
   padding: 0;
-  background: var(--page-background-color);
+  background: var(--accent-extra-light-color);
   box-sizing: border-box;
 }
