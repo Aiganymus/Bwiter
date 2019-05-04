@@ -13,8 +13,7 @@ html, body {
 }
 
 body {
-  font-family: var(--font-light);
-  margin: 0;
+  font-family: var(--font-light) !important;
   padding: 0;
   background: var(--page-background-color);
   box-sizing: border-box;
