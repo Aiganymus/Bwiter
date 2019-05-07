@@ -1,0 +1,15 @@
+<div class="info">
+  <div class="name bold">
+    {{nickname}}
+  </div>
+  <div class="name thin">
+    {{username}}
+  </div>
+  <div class="status">
+    {{status}}
+  </div>
+  <div class="joined thin">
+    <img class="image" src="assets/icons/calendar-regular.svg" alt="">
+    Дата регистрации: {{ joined_at | date:'longDate' }}
+  </div>
+</div>
