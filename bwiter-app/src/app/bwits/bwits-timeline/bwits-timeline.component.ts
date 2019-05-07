@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BwitService } from '../services/bwit.service';
-import { Bwit } from '../services/models/bwit';
+import { BwitService } from 'src/app/shared/services/bwit.service';
+import { Bwit } from 'src/app/shared/services/models/bwit';
 
 @Component({
   selector: 'app-bwits-timeline',

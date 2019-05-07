@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Bwit } from '../services/models/bwit';
+import { Bwit } from 'src/app/shared/services/models/bwit';
 
 @Component({
   selector: 'app-bwit',

@@ -14,7 +14,8 @@ export class BwitService {
       author: {
         id: 1,
         username: 'the_example',
-        nickname: 'Example User'
+        nickname: 'Example User',
+        avatar: 'https://unsplash.imgix.net/photo-1421986527537-888d998adb74?q=75&fm=jpg&s=e633562a1da53293c4dc391fd41ce41d'
       },
       likes: 49,
       comments: 10,
@@ -27,7 +28,8 @@ export class BwitService {
       author: {
         id: 1,
         username: 'the_example',
-        nickname: 'Example User'
+        nickname: 'Example User',
+        avatar: 'https://unsplash.imgix.net/photo-1421986527537-888d998adb74?q=75&fm=jpg&s=e633562a1da53293c4dc391fd41ce41d'
       },
       likes: 0,
       comments: 123
@@ -39,7 +41,8 @@ export class BwitService {
       author: {
         id: 1,
         username: 'the_example',
-        nickname: 'Example User'
+        nickname: 'Example User',
+        avatar: 'https://unsplash.imgix.net/photo-1421986527537-888d998adb74?q=75&fm=jpg&s=e633562a1da53293c4dc391fd41ce41d'
       },
       likes: 23,
       comments: 0
