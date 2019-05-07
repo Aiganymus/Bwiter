@@ -13,6 +13,8 @@
   --accent-extra-extra-light-color: #F5F8FA;
   --color-heart: pink;
   --color-comment: green;
+  --brand-light-color:  #A3D4F2;
+  --brand-extra-light-color: #E8F4FB;
 }
 
 html, body {
@@ -22,6 +24,15 @@ html, body {
 body {
   font-family: var(--font-light) !important;
   padding: 0;
-  background: var(--accent-extra-light-color);
+  background-color: var(--accent-extra-light-color) !important;
   box-sizing: border-box;
+}
+
+.tag {
+  color: var(--brand-color);
+  transition: all .4s;
+
+  &:hover {
+    border-bottom: 1px solid var(--brand-color);
+  }
 }
