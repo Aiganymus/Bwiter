@@ -39,12 +39,13 @@ class CustomUserSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    username = serializers.CharField(validators=[])
+    username = serializers.CharField(validators=[], required=True)
 
-    password = serializers.CharField(min_length=8, write_only=True)
+    password = serializers.CharField(
+        min_length=8, write_only=True, required=True)
 
     nickname = serializers.CharField(
-        min_length=3, source="custom_user.nickname")
+        min_length=3, source="custom_user.nickname", required=False)
     profile_pic = serializers.FileField(
         allow_null=False, source="custom_user.profile_pic", required=False)
 
@@ -58,12 +59,14 @@ class UserSerializer(serializers.ModelSerializer):
             username=validated_data['username'],
             password=make_password(validated_data['password']))
 
-        CustomUser.objects.create(
-            user=user,
-            nickname=validated_data['custom_user']['nickname'],
-            profile_pic=validated_data['custom_user']['profile_pic'],
-            joined_at=validated_data['custom_user']['joined_at'],
-            status=validated_data['custom_user']['status'])
+        if 'custom_user' in validated_data:
+            CustomUser.objects.create(
+                user=user,
+                nickname=validated_data['custom_user'].get('nickname', ''),
+                profile_pic=validated_data['custom_user'].get(
+                    'profile_pic', None),
+                joined_at=validated_data['custom_user'].get('joined_at', None),
+                status=validated_data['custom_user'].get('status', ''))
 
         return user
 

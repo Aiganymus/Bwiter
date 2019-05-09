@@ -32,9 +32,9 @@ class Connection(models.Model):
 
 class CustomUser(models.Model):
     profile_pic = models.FileField(blank=False, null=False)
-    nickname = models.CharField(max_length=200)
-    status = models.CharField(max_length=200, blank=True)
-    joined_at = models.DateTimeField(auto_now_add=True)
+    nickname = models.CharField(max_length=200, blank=True, null=False)
+    status = models.CharField(max_length=200, blank=True, null=False)
+    joined_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, related_name='custom_user')
 
