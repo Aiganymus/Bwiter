@@ -1,0 +1,45 @@
+<!-- <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+    <input type="text" name="username" />
+    <input type="password" name="password"/>
+    <input type="text" name="status" />
+    <input type="datetime-local" name="joined_at" />
+    <input type="text" name="nickname" />
+
+    <input type="file" name="profile_pic" (change)="onChange($event)" />
+    <button type="submit">Submit</button>
+
+  </form> -->
+
+
+
+
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username" placeholder="Deltaplane" formControlName="username">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="" formControlName="password">
+  </div>
+
+
+  <div class="form-group">
+    <label for="status">Status</label>
+    <input type="text" class="form-control" id="status" placeholder="Cool" formControlName="status">
+  </div>
+
+  <div class="form-group">
+    <label for="nickname">Nickname</label>
+    <input type="text" class="form-control" id="nickname" placeholder="Pepsodent" formControlName="nickname">
+  </div>
+
+  <div class="form-group">
+    <label for="profile_pic">Avatar</label>
+    <input type="file" class='form-control' id="profile_pic" (change)="onFileChange($event)" #fileInput>
+  </div>
+  <button type="submit" [disabled]="form.invalid || loading" class="btn btn-success">Submit <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i></button>
+</form>

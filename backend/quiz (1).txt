@@ -1,0 +1,40 @@
+First part
+1.
+a) Create table cities with fields name, population, popularity. Name is text, and other fields are numbers.
+
+Name        Population  Popularity
+Almaty      2000000     10
+Astana      1000000     9
+New york    15000000    25
+Tokyo       10000000    22
+Beijin      22000000    12
+Paris       2000000     20
+Bishkek     1000000     2
+
+b) Change the name of Astana to Nursultan
+c) Select cities, so that results don’t include cities with population less than < 1273180 or cities popularity greater than 17
+d) Delete cities where popularity is either 12, 9 or 10
+
+2.
+a)
+Iron man         Tony          Marvel       alive
+Black window     Natasha       Marvel       dead
+Hulk             Bruce         Marvel       alive
+Yakubovich       Leonid        Pole chudes  alive
+Tor              Tor           Marvel       alive
+Captain America  Steve         Marvel       alive
+Batman           Bruce         DC           alive
+Black panther    Spulae Mulae  Marvel       alive
+
+a) Select dead heroes.
+b) Find the number of people whoese belong to Marvel
+c) Select all the people who have o as the second letter in their names
+d) Delete Yakubovich
+
+
+Second part
+You need to make animation of circles that span randomly.
+They circulate around center of screen. They don't interact with each other.
+You need to take into account that circles don't span outside of the screen
+or they are partially in it.
+(Шарики вращаются вокруг цента экрана, и должный появляться внутри него)
