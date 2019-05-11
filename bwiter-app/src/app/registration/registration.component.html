@@ -101,8 +101,13 @@
               />
             </div>
 
-            <input class="btn btn-lg btn-primary btn-block" value="Sign Me Up" type="submit" />
+            <button type="submit" [disabled]="form.invalid || loading" class="btn btn-lg btn-primary btn-block">
+              Submit <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i>
+            </button>
           </fieldset>
+          <p class="text-gray-soft text-center small mb-2 mt-2">
+            Already have an account? <a [routerLink]="'/login'">Sign in</a>
+          </p>
         </form>
       </div>
     </div>
