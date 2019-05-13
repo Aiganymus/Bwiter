@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bc5564e-1ee3-4130-b7d0-2cc9b322b47f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/accounts/migrations/0006_delete_connection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/mutuals/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/mutuals/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/mutuals/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/mutuals/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/mutuals/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/mutuals/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/mutuals/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/mutuals/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/mutuals/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/mutuals/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Bwiter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Bwiter.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/accounts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/accounts/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/accounts/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/accounts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/bwits/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/bwits/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/main/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,25 +20,27 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="gitignore" value="1" />
+          <entry key="gitignore" value="2" />
+          <entry key="md" value="1" />
           <entry key="py" value="50" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Markdown" value="1" />
+          <entry key="PLAIN_TEXT" value="2" />
           <entry key="Python" value="50" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="gitignore" value="6" />
+          <entry key="gitignore" value="14" />
           <entry key="py" value="2819" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="PLAIN_TEXT" value="14" />
           <entry key="Python" value="2819" />
         </counts>
       </usages-collector>
@@ -70,8 +51,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+            <state relative-caret-position="60">
+              <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -160,11 +141,6 @@
             <path>
               <item name="Bwiter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="Bwiter" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name=".idea" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -378,10 +354,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+        <state relative-caret-position="60">
+          <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
         </state>
       </provider>
     </entry>
