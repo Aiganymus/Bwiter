@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'accounts',
     'mutuals',
     'bwits',
+    'comments'
 ]
 
 MIDDLEWARE = [
