@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BwitService } from 'src/app/shared/services/bwit.service';
+import { BwitService } from 'src/app/shared/services/bwit-services/bwit.service';
 import { Bwit } from 'src/app/shared/services/models/bwit';
 
 @Component({
