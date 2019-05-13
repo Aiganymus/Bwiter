@@ -10,7 +10,6 @@ from rest_framework.authtoken.models import Token
 from rest_framework.parsers import FileUploadParser, JSONParser, FormParser, MultiPartParser
 from mutuals.models import Connection
 
-
 from django.http import Http404
 
 # Create your views here.
@@ -52,7 +51,10 @@ def login(request):
     serializer.is_valid(raise_exception=True)
     user = serializer.validated_data.get('user')
     token, created = Token.objects.get_or_create(user=user)
-    return Response({'token': token.key})
+    return Response({
+        'token': token.key,
+        'user':user
+    })
 
 
 @api_view(['POST'])

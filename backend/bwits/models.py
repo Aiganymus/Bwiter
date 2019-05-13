@@ -10,18 +10,15 @@ class Bwit(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='author_bwits')
 
+
 class LikeBwit(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='user_likes')
     bwit = models.ForeignKey(
         Bwit, on_delete=models.CASCADE, related_name='bwit_likes')
 
-
     class Meta:
         unique_together = (('user', 'bwit'))
 
     def __str__(self):
         return self.user.username + " " + self.bwit.body
-
-
-

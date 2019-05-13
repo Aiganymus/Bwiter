@@ -10,6 +10,7 @@ from .models import CustomUser, Connection
 from django.core import exceptions
 import django.contrib.auth.password_validation as validators
 
+
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
@@ -70,8 +71,9 @@ class UserSerializer(serializers.ModelSerializer):
             instance.custom_user.status = validated_data['custom_user'].get(
                 'status', instance.custom_user.status)
             instance.custom_user.joined_at = validated_data['custom_user'].get(
-                'nickname', instance.custom_user.joined_at)
+                'joined_at', instance.custom_user.joined_at)
         instance.save()
+        instance.custom_user.save()
         return instance
 
     class Meta:

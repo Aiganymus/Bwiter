@@ -33,7 +33,7 @@ def bwit_detail(request, pk):
 
     if request.method == "GET":
         serializer = BwitSerializer(bwit)
-        return Response(serializer)
+        return Response(serializer.data)
 
     if request.method == "PUT":
         serializer = BwitSerializer(instance=bwit, data=request.data)
