@@ -5,6 +5,16 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+<<<<<<< HEAD
+=======
+  <component name="TemplatesService">
+    <option name="TEMPLATE_FOLDERS">
+      <list>
+        <option value="$MODULE_DIR$/myvenv/lib/python3.6/site-packages/django/forms/templates" />
+      </list>
+    </option>
+  </component>
+>>>>>>> 3acb7a0b1462defca999e07d0b3a662acddef301
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />
   </component>

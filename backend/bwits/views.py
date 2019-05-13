@@ -30,7 +30,7 @@ def bwit_detail(request, pk):
     except Bwit.DoesNotExist as error:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
-    if request.method ==  "GET":
+    if request.method == "GET":
         serializer = BwitSerializer(bwit)
         return Response(serializer)
 

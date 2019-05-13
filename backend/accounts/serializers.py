@@ -10,21 +10,6 @@ from .models import CustomUser, Connection
 from django.core import exceptions
 import django.contrib.auth.password_validation as validators
 
-
-class ConnectionSerializer(serializers.ModelSerializer):
-    def already_following(value):
-        if Connection.objects.filter(following=value).exists():
-            raise serializers.ValidationError('Already following')
-
-    followed = serializers.IntegerField(
-        required=True, validators=[already_following])
-
-    class Meta:
-        model = Connection
-        fields = ('followed', 'following', 'created')
-        read_only_fields = 'created',
-
-
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
