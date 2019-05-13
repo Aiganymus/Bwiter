@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Token } from 'src/app/shared/services/models/token';
 import { Router } from '@angular/router';
+import { AuthService } from '../shared/services/auth-services/auth.service';
+import { User } from '../shared/services/models/user';
 
 @Component({
   selector: 'app-login',
@@ -9,16 +9,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  ngOnInit() {}
-  creds = {
+
+  creds: User = {
     username: '',
     password: ''
   };
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private router: Router,
+              private authService: AuthService) {}
+
+  ngOnInit() {}
 
   onSubmit() {
-    this.http.post<Token>('http://127.0.0.1:8000/api/login/', this.creds).subscribe(result => {
+    this.authService.login(this.creds).then(result => {
       console.log('I logged in', result.token);
       localStorage.setItem('token', result.token);
       this.router.navigateByUrl('');
