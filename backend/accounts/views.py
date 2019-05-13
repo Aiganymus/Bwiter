@@ -9,11 +9,12 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import CustomUserSerializer, UserSerializer, ConnectionSerializer
+from .serializers import CustomUserSerializer, UserSerializer
+from mutuals.serializers import ConnectionSerializer
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 from rest_framework.parsers import FileUploadParser, JSONParser, FormParser, MultiPartParser
-from .models import CustomUser, Connection, Bwit
+from mutuals.models import Connection
 from django.http import Http404
 
 # Create your views here.

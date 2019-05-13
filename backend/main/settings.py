@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework.authtoken',
     'accounts',
-    'storages',
+    'mutuals',
 ]
 
 MIDDLEWARE = [
