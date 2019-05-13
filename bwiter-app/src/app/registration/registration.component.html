@@ -31,7 +31,7 @@
             <div class="form-group">
               <label for="profile_pic">Avatar</label>
               <input type="file" class="form-control-file" id="profile_pic" (change)="onFileChange($event)"
-                #fileInput />
+              accept="image/jpeg,image/jpg,image/png" #fileInput />
             </div>
 
             <button type="submit" [disabled]="form.invalid || loading" class="btn btn-lg btn-primary btn-block">

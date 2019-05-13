@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { of, Observable } from 'rxjs';
-import { Bwit } from '../models/bwit';
+import { Bwit } from '../../models/bwit';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BwitService {
+  DJANGO_SERVER = 'http://127.0.0.1:8000';
+
   bwit: Bwit[] = [
     {
       id: 1,

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../models/user';
-import { Token } from '../models/token';
+import { User } from '../../models/user';
+import { Token } from '../../models/token';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +13,6 @@ export class AuthService {
 
   login(creds: User): Promise<Token> {
     return this.http.post<Token>(`${this.DJANGO_SERVER}/api/login/`, creds).toPromise();
-  }
-
-  register(input: FormData): Promise<User> {
-    return this.http.post<User>(`${this.DJANGO_SERVER}/api/users`, input).toPromise();
   }
 
   isAuthenticated(): boolean {
