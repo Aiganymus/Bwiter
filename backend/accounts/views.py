@@ -13,7 +13,7 @@ from .serializers import CustomUserSerializer, UserSerializer, ConnectionSeriali
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 from rest_framework.parsers import FileUploadParser, JSONParser, FormParser, MultiPartParser
-from .models import CustomUser, Connection, Bwit
+from .models import CustomUser, Connection
 from django.http import Http404
 
 # Create your views here.
