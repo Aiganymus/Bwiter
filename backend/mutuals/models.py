@@ -19,3 +19,5 @@ class Connection(models.Model):
         self.validate_unique()
         super(Connection, self).save(*args, **kwargs)
 
+    def __str__(self):
+        return "Followed: " + self.followed.username + " following: " + self.following.username

@@ -10,7 +10,6 @@ from .models import Connection
 # Create your views here.
 @api_view(['DELETE', 'POST'])
 def create_or_delete_connection(request, pk):
-
     if request.method == 'POST':
         serializer = ConnectionSerializer({
             'followed': f'{pk}',
@@ -26,6 +25,7 @@ def create_or_delete_connection(request, pk):
 
         return Response(status=status.HTTP_204_NO_CONTENT)
     return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
+
 
 @api_view(['GET'])
 def get_followers(request, pk):
