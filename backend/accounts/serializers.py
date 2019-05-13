@@ -5,7 +5,7 @@ from django.utils import timezone
 from django.contrib.auth.hashers import make_password
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.models import User
-from .models import CustomUser, Connection, Bwit
+from .models import CustomUser, Connection
 
 from django.core import exceptions
 import django.contrib.auth.password_validation as validators
@@ -87,17 +87,17 @@ class UserSerializer(serializers.ModelSerializer):
         )
 
 
-class BwitSerializer(serializers.ModelSerializer):
-    body = serializers.CharField(max_length=40)
-    picture = serializers.FileField()
-    created_at = serializers.DateTimeField()
-    author = CustomUserSerializer(read_only=True)
-
-    class Meta:
-        model = Bwit
-        fields = (
-            'body',
-            'picture',
-            'created_at',
-            'author',
-        )
+# class BwitSerializer(serializers.ModelSerializer):
+#     body = serializers.CharField(max_length=40)
+#     picture = serializers.FileField()
+#     created_at = serializers.DateTimeField()
+#     author = CustomUserSerializer(read_only=True)
+#
+#     class Meta:
+#         model = Bwit
+#         fields = (
+#             'body',
+#             'picture',
+#             'created_at',
+#             'author',
+#         )
