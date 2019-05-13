@@ -1,15 +1,15 @@
 <div class="info">
   <div class="name bold">
-    {{nickname}}
+    {{ user.nickname }}
   </div>
   <div class="name thin">
-    {{username}}
+    {{ user.username }}
   </div>
   <div class="status">
-    {{status}}
+    {{ user.status }}
   </div>
   <div class="joined thin">
     <img class="image" src="assets/icons/calendar-regular.svg" alt="">
-    Дата регистрации: {{ joined_at | date:'longDate' }}
+    Дата регистрации: {{ user.joined_at | date:'longDate' }}
   </div>
 </div>
