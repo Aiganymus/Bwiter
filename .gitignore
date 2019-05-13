@@ -1,5 +1,5 @@
 .env
 db.sqlite3
 node_modules
-./.idea
-.venv
+.idea
+venv
