@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from accounts.serializers import CustomUserSerializer, UserSerializer, ConnectionSerializer
+from accounts.serializers import CustomUserSerializer, UserSerializer
+from mutuals.serializers import ConnectionSerializer
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.response import Response

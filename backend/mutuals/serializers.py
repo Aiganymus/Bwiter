@@ -9,8 +9,7 @@ class ConnectionSerializer(serializers.ModelSerializer):
         if Connection.objects.filter(following=value).exists():
             raise serializers.ValidationError('Already following')
 
-    followed = serializers.IntegerField(
-        required=True, validators=[already_following])
+    followed = serializers.IntegerField(required=True, validators=[already_following])
 
     class Meta:
         model = Connection
