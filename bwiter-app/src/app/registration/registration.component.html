@@ -43,6 +43,7 @@
             Already have an account? <a [routerLink]="'/login'">Sign in</a>
           </p>
         </form>
+        <button ngIf="userId" (click)="delete()" type="button" name="button">Delete me</button>
       </div>
     </div>
   </div>

@@ -92,4 +92,17 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
+  delete() {
+    this.userService.deleteUser()
+        .then(
+          res => {
+            this.userService.destroyCurrentUser();
+            this.router.navigateByUrl('registration');
+          },
+          err => {
+            console.error(err);
+          }
+        )
+  }
+
 }

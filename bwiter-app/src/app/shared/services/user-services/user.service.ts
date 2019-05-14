@@ -25,6 +25,10 @@ export class UserService {
     return this.http.put<User>(`${this.DJANGO_SERVER}/api/users`, input).toPromise();
   }
 
+  deleteUser() {
+    return this.http.delete<User>(`${this.DJANGO_SERVER}/api/users`, input).toPromise();
+  }
+
   getCurrentUser(): User {
     return this.currentUser;
   }
@@ -35,5 +39,6 @@ export class UserService {
 
   destroyCurrentUser() {
     this.createUser = null;
+    localStorage.removeItem('token');
   }
 }
