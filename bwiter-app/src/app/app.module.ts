@@ -20,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { FollowersComponent } from './followers/followers.component';
 import { AuthInterceptor } from './shared/services/auth-services/auth.interceptor';
 import { UserPageComponent } from './user-page/user-page.component';
+import { NewsFeedComponent } from './news-feed/news-feed.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UserPageComponent } from './user-page/user-page.component';
     RegistrationComponent,
     LoginComponent,
     FollowersComponent,
-    UserPageComponent
+    UserPageComponent,
+    NewsFeedComponent
   ],
   imports: [
     BrowserModule,
