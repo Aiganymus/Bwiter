@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../shared/services/models/user';
+import { User } from '../shared/models/user';
+import { UserService } from '../shared/services/user-services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,18 +8,12 @@ import { User } from '../shared/services/models/user';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  user: User = {
-    id: 1,
-    username: 'the_example',
-    nickname: 'Example User',
-    avatar: 'https://unsplash.imgix.net/photo-1421986527537-888d998adb74?q=75&fm=jpg&s=e633562a1da53293c4dc391fd41ce41d',
-    status: 'dksjfhkdlsjflksdjfl',
-    joined_at: '2019-05-12 12:12:12'
-  };
+  user: User;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.user = this.userService.getCurrentUser();
   }
 
 }

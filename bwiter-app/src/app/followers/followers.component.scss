@@ -1,5 +1,5 @@
 div {
-  width: 660px;
-  margin: 0 0 0 300px;
-  background-color:red;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
 }

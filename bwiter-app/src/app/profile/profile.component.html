@@ -10,6 +10,6 @@
   </div>
   <div class="joined thin">
     <img class="image" src="assets/icons/calendar-regular.svg" alt="">
-    Дата регистрации: {{ user.joined_at | date:'longDate' }}
+    Дата регистрации: {{ user.joined_at | date:'longDate':'+06':'ru-KZ' }}
   </div>
 </div>

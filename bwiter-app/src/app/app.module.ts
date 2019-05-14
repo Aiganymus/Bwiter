@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { FollowersComponent } from './followers/followers.component';
 import { AuthInterceptor } from './shared/services/auth-services/auth.interceptor';
+import { UserPageComponent } from './user-page/user-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AuthInterceptor } from './shared/services/auth-services/auth.intercepto
     ProfilecardComponent,
     RegistrationComponent,
     LoginComponent,
-    FollowersComponent
+    FollowersComponent,
+    UserPageComponent
   ],
   imports: [
     BrowserModule,
