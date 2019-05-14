@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Bwit, LikeBwit
-from .serializers import BwitSerializer, LikeBwitSerializer
+from .serializers import BwitSerializer, LikeBwitSerializer, BwitSerializerTwo
 from rest_framework import generics
 from django.contrib.auth.models import User
 from mutuals.models import Connection
@@ -21,7 +21,7 @@ def bwits(request):
         return Response(serializer.data)
 
     if request.method == "POST":
-        serializer = BwitSerializer(data=request.data)
+        serializer = BwitSerializerTwo(data=request.data)
         if serializer.is_valid():
             serializer.save(author=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
