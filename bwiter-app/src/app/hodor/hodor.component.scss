@@ -1,3 +1,6 @@
+.navbar {
+  background-color: var(--brand-extra-light-color);
+}
 
 .custom-link {
   display:flex;
@@ -6,6 +9,7 @@
   align-items: center;
   vertical-align: baseline;
   text-transform: uppercase;
+
   span {
     display: block;
     margin-right:10px;
