@@ -21,6 +21,10 @@ export class UserService {
     return this.http.post<User>(`${this.DJANGO_SERVER}/api/users`, input).toPromise();
   }
 
+  updateUser(input: FormData): Promise<User> {
+    return this.http.put<User>(`${this.DJANGO_SERVER}/api/users`, input).toPromise();
+  }
+
   getCurrentUser(): User {
     return this.currentUser;
   }

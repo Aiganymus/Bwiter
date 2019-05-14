@@ -9,8 +9,7 @@ import { NewsFeedComponent } from './news-feed/news-feed.component';
 
 const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
-  {path: '',
-  component: BwitsTimelineComponent},
+  {path: '', pathMatch: 'full', component: NewsFeedComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profile/:id',
     component: UserPageComponent,
@@ -20,7 +19,8 @@ const routes: Routes = [
       {path: 'followers', component: FollowersComponent, outlet: 'userPage'},
     ]
   },
-  {path: 'timeline', component: NewsFeedComponent}
+  {path: 'timeline', component: NewsFeedComponent},
+  {path: 'profile/edit/:id', component: RegistrationComponent},
 ];
 
 
