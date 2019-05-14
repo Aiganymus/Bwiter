@@ -5,6 +5,6 @@ urlpatterns = [
     path('bwits/', bwits, name='bwits'),
     path('following_bwits/<int:pk>/', following_bwits, name='following_bwits'),
     path('bwits/<int:pk>/', bwit_detail, name='bwit_detail'),
-    path('bwits/<int:pk>/likes_bwit/', likes_bwit, name='likes_bwit'),
+    path('bwits/<int:pk>/likes/', likes_bwit, name='likes_bwit'),
     path('likes/', all_likes, name='all_likes'),
 ]
