@@ -1,0 +1,38 @@
+@import "./fonts.scss";
+
+:root {
+  --font-light: HelviticaLight, Helvetica, Arial, sans-serif;
+  --font-bold: HelviticaBold, Helvetica, Arial, sans-serif;
+  --font-thin: HelviticaThin, Helvetica, Arial, sans-serif;
+  --font-medium: HelviticaMediuim, Helvetica, Arial, sans-serif;
+  --brand-color: #1DA1F2;
+  --text-color: #14171A;
+  --accent-color: #657786;
+  --accent-light-color: #AAB8C2;
+  --accent-extra-light-color: #E1E8ED;
+  --accent-extra-extra-light-color: #F5F8FA;
+  --color-heart: pink;
+  --color-comment: green;
+  --brand-light-color:  #A3D4F2;
+  --brand-extra-light-color: #E8F4FB;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-light) !important;
+  padding: 0;
+  background-color: var(--accent-extra-light-color) !important;
+  box-sizing: border-box;
+}
+
+.tag {
+  color: var(--brand-color);
+  transition: all .4s;
+
+  &:hover {
+    border-bottom: 1px solid var(--brand-color);
+  }
+}
