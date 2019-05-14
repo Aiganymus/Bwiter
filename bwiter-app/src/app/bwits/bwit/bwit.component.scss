@@ -1,0 +1,122 @@
+$transition: all .4s;
+$thick-border: 2px solid;
+$thin-border: 1px solid;
+$ava-size: 80px;
+
+.bwit {
+  position: relative;
+  padding: 25px 25px 25px 60px;
+  background-color: white;
+  cursor: pointer;
+  transition: $transition;
+  border-top: 1px solid var(--accent-extra-light-color);
+  border-bottom: 1px solid var(--accent-extra-light-color);
+
+  &:hover {
+    background-color: var(--accent-extra-extra-light-color);
+  }
+}
+
+.bwit-picture {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+}
+
+.avatar {
+  float: left;
+  position: absolute;
+  left: 27px;
+  border-radius: 100px;
+  transition: $transition;
+  width: $ava-size;
+  height: $ava-size;
+
+  &:hover {
+    border-radius: 0px;
+  }
+}
+
+.bwit-time {
+  float: right;
+  color: var(--accent-color);
+  transition: $transition;
+  border-bottom: $thin-border var(--accent-extra-extra-light-color);;
+
+  &:hover {
+    border-bottom: $thin-border var(--accent-color);
+  }
+}
+
+.push {
+  margin-left: 70px;
+}
+
+.name {
+  font-weight: bold;
+  transition: $transition;
+  border-bottom: $thin-border var(--accent-extra-extra-light-color);;
+
+  &:hover {
+    border-bottom: $thin-border var(--text-color);
+  }
+}
+
+.username {
+  font-weight: normal;
+  color: var(--accent-color);
+  margin-left: 10px;
+}
+
+.body {
+  margin: 5px 0;
+  font-size: 1em;
+  line-height: 1.5rem;
+}
+
+.icons {
+  display: flex;
+}
+
+.fa {
+  color: var(--accent-color);
+  font-size: 1.5em;
+  transition: $transition;
+  margin-right: 0.7rem;
+}
+
+.icon {
+  width: 15%;
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+
+  div {
+    margin-top: 5px;
+  }
+}
+
+.comment {
+  &:hover {
+    color: var(--color-comment);
+
+    .fa-comment {
+      color: var(--color-comment);
+    }
+  }
+}
+
+.heart {
+  &:hover {
+    color: var(--color-heart);
+
+    .fa-heart {
+      color: var(--color-heart);
+    }
+  }
+}
+
+.icon-number {
+  font-size: 0.80rem;
+  font-family: var(--font-medium);
+}

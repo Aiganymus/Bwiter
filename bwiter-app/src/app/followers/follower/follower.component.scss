@@ -1,0 +1,75 @@
+.image{
+  width: 100%;
+  height: 90px;
+  background-size: contain;
+}
+
+.card {
+  margin: 5px;
+  padding: 0;
+  position: relative;
+  background-color:#FFFFFF;
+  width:260px;
+}
+
+.card__image {
+  width: 70px;
+  left:10px;
+  height: 70px;
+  position: absolute;
+  top: 50px;
+  border-radius: 50%;
+  border: 1px solid #cccccc;
+}
+.card__image:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22), 0 14px 56px rgba(0, 0, 0, 0.25);
+}
+.card__image-geoff {
+  background-size: contain;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  z-index: 10;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.card__image-geoff:hover {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+.card__info {
+  width: 100%;
+  height: 0;
+  background-color: #323232;
+}
+.bold {
+  font-family: var(--font-bold) !important;
+  font-size: 1.5em;
+}
+
+.thin {
+  font-family: var(--font-thin) !important;
+}
+
+.info {
+  border: 1px;
+  width: 100%;
+  height: 110px;
+
+  background-color: #FFFFFF;
+  font-family: var(--font-light) !important;
+  font-size: 0.8em;
+  padding-left: 10px;
+}
+.name{
+  margin: 0px;
+}
+ .custom {
+   width:80px;
+   height: 30px;
+   border-radius: 15px;
+   margin-left: 150px;
+   margin-top: 10px;
+ }

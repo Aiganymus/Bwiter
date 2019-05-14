@@ -1,0 +1,50 @@
+<div class="container-fluid bg-light py-3">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card card-body">
+        <h3 *ngIf="!userId" class="text-center mb-4">Sign-up</h3>
+        <h3 *ngIf="userId" class="text-center mb-4">Update user</h3>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <fieldset>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" placeholder="Deltaplane"
+                formControlName="username" />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="" formControlName="password" />
+            </div>
+
+            <div class="form-group">
+              <label for="status">Status</label>
+              <input type="text" class="form-control" id="status" placeholder="Cool" formControlName="status" />
+            </div>
+
+            <div class="form-group">
+              <label for="nickname">Nickname</label>
+              <input type="text" class="form-control" id="nickname" placeholder="Pepsodent"
+                formControlName="nickname" />
+            </div>
+
+            <div class="form-group">
+              <label for="profile_pic">Avatar</label>
+              <input type="file" class="form-control-file" id="profile_pic" (change)="onFileChange($event)"
+              accept="image/jpeg,image/jpg,image/png" #fileInput />
+            </div>
+
+            <button type="submit" [disabled]="form.invalid || loading" class="btn btn-lg btn-primary btn-block">
+              Submit <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i>
+            </button>
+          </fieldset>
+          <p *ngIf="!userId" class="text-gray-soft text-center small mb-2 mt-2">
+            Already have an account? <a [routerLink]="'/login'">Sign in</a>
+          </p>
+        </form>
+        <button *ngIf="userId" (click)="delete()" type="button" name="button">Delete me</button>
+      </div>
+    </div>
+  </div>
+</div>
