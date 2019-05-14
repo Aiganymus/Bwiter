@@ -10,12 +10,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
-import { FollowerComponent } from './follower/follower.component';
+import { FollowerComponent } from './followers/follower/follower.component';
 import { ProfilecardComponent } from './profilecard/profilecard.component';
 import { BwitsModule } from './bwits/bwits.module';
 import { RegistrationComponent } from './registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { FollowersComponent } from './followers/followers.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LoginComponent } from './login/login.component';
     FollowerComponent,
     ProfilecardComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    FollowersComponent
   ],
   imports: [
     BrowserModule,

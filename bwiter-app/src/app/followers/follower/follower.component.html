@@ -1,0 +1,22 @@
+<ng-container>
+
+    <div class="card">
+        <img class="image" src={{user.wallpaper}} alt="">
+      <div class="">
+        <img class="image card__image card__image-geoff " src={{user.avatar}} alt="">
+      </div>
+      <button type="button" class="btn btn-secondary btn-sm custom">Читаю</button>
+      <div class="info">
+        <div class="name bold">
+          {{ user.nickname }}
+        </div>
+        <div class="name thin">
+          {{ user.username }}
+        </div>
+        <div class="status">
+          {{ user.status }}
+        </div>
+      </div>
+    </div>
+
+</ng-container>
