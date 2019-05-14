@@ -7,6 +7,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import Bwit, LikeBwit
 from .serializers import BwitSerializer, LikeBwitSerializer
+from rest_framework import generics
+from django.contrib.auth.models import User
+from mutuals.models import Connection
 
 
 @api_view(['GET', 'POST'])
@@ -68,8 +71,15 @@ def likes_bwit(request, pk):
 
 
 @api_view(['GET'])
-def all_bwits(request):
-    if request.method == "GET":
-        all_bwits = Bwit.objects.all()
-        serializer = BwitSerializer(all_bwits, many=True)
-        return Response(serializer.data)
+def following_bwits(request, pk):
+    follower = User.objects.get(pk=pk)
+    followed = [
+        connection.following
+        for connection in Connection.objects.filter(followed=follower)
+    ]
+    serialized = UserSerializer(followed, many=True)
+    print(serialized.data)
+    return Response(serialized.data)
+
+
+
