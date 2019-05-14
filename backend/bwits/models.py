@@ -10,6 +10,8 @@ class Bwit(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='author_bwits')
 
+    def __str__(self):
+        return self.author.username + " " + self.body
 
 class LikeBwit(models.Model):
     user = models.ForeignKey(

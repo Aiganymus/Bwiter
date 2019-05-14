@@ -7,21 +7,25 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import Bwit, LikeBwit
 from .serializers import BwitSerializer, LikeBwitSerializer
+from rest_framework import generics
+from django.contrib.auth.models import User
+from mutuals.models import Connection
+from itertools import chain
 
 
 @api_view(['GET', 'POST'])
 def bwits(request):
     if request.method == "GET":
         bwits = Bwit.objects.filter(author=request.user)
-        serialzier = BwitSerializer(bwits, many=True)
-        return Response(serialzier.data)
+        serializer = BwitSerializer(bwits, many=True)
+        return Response(serializer.data)
 
     if request.method == "POST":
-        serialzier = BwitSerializer(data=request.data)
-        if serialzier.is_valid():
-            serialzier.save(author=request.user)
-            return Response(serialzier.data, status=status.HTTP_201_CREATED)
-        return Response(serialzier.data, status=status.HTTP_400_BAD_REQUEST)
+        serializer = BwitSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(author=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET', 'DELETE', 'PUT'])
@@ -68,8 +72,25 @@ def likes_bwit(request, pk):
 
 
 @api_view(['GET'])
-def all_bwits(request):
-    if request.method == "GET":
-        all_bwits = Bwit.objects.all()
-        serializer = BwitSerializer(all_bwits, many=True)
-        return Response(serializer.data)
+def following_bwits(request, pk):
+    follower = User.objects.get(pk=pk)
+    followed = [
+        connection.following
+        for connection in Connection.objects.filter(followed=follower)
+    ]
+
+    bwits = []
+    for oneFollowed in followed:
+        bwit = Bwit.objects.filter(author=oneFollowed)
+        bwits.append(bwit)
+    # print(bwits)
+
+    result = list(chain(*bwits))
+
+    # serialized = UserSerializer(followed, many=True)
+    # print(serialized.data)
+    serializer = BwitSerializer(result, many=True)
+    return Response(serializer.data)
+
+
+
