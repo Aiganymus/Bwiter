@@ -22,6 +22,9 @@ import { AuthInterceptor } from './shared/services/auth-services/auth.intercepto
 import { UserPageComponent } from './user-page/user-page.component';
 import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { HodorComponent } from './hodor/hodor.component';
+import { CreateCommentComponent } from './comment/create-comment/create-comment.component';
+import { CommentEntityComponent } from './comment/comment-entity/comment-entity.component';
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { HodorComponent } from './hodor/hodor.component';
     NewsFeedComponent,
     NavbarComponent,
     LoginComponent,
-    HodorComponent
+    HodorComponent,
+    CreateCommentComponent,
+    CommentEntityComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

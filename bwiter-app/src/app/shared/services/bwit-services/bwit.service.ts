@@ -56,4 +56,7 @@ export class BwitService {
   getBwits(): Observable<Bwit[]> {
     return of<Bwit[]>(this.bwit);
   }
+  getBwit(id: string): Observable <Bwit> {
+    return of<Bwit>(this.bwit[0]);
+  }
 }
