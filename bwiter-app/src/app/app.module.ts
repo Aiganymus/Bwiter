@@ -33,7 +33,8 @@ import { NewsFeedComponent } from './news-feed/news-feed.component';
     LoginComponent,
     FollowersComponent,
     UserPageComponent,
-    NewsFeedComponent
+    NewsFeedComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
