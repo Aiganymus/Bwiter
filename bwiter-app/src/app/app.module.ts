@@ -14,15 +14,22 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { AuthInterceptor } from './shared/services/auth-services/auth.interceptor';
+<<<<<<< HEAD
 import { KakakhaComponent } from './kakakha/kakakha.component';
 import { HodorComponent } from './hodor/hodor.component';
+=======
+>>>>>>> 2b5a9dd9647b68923c380a64857ae7c106af0223
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
+<<<<<<< HEAD
     LoginComponent,
     HodorComponent
+=======
+    LoginComponent
+>>>>>>> 2b5a9dd9647b68923c380a64857ae7c106af0223
   ],
   imports: [
     BrowserModule,
