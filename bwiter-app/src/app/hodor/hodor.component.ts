@@ -12,4 +12,7 @@ export class HodorComponent implements OnInit {
   ngOnInit() {
   }
 
+  logout() {
+
+  }
 }

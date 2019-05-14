@@ -49,11 +49,13 @@ class UserDetail(APIView):
 def login(request):
     serializer = AuthTokenSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
+    print(serializer.validated_data)
     user = serializer.validated_data.get('user')
     token, created = Token.objects.get_or_create(user=user)
+    serializer_user = UserSerializer(user)
     return Response({
         'token': token.key,
-        'user':user
+        'user': serializer_user.data
     })
 
 
