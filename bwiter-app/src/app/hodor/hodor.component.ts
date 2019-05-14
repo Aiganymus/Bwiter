@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../shared/services/user-services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hodor',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HodorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService,
+              private router: Router) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.userService.destroyCurrentUser();
+    this.router.navigateByUrl('registration');
   }
 
 }
