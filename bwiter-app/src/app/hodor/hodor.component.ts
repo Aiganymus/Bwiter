@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'hodor',
+  templateUrl: './hodor.component.html',
+  styleUrls: ['./hodor.component.scss']
 })
 export class NavbarComponent implements OnInit {
 
