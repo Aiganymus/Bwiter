@@ -9,14 +9,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./followers.component.scss']
 })
 export class FollowersComponent implements OnInit {
-  public folowers:User[]=[];
+  user: User;
+  public followers:User[]=[];
 
   constructor(private userService: UserService,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-     const id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'))
-    this.userService.getFollowers(id) .then (res => console.log(res));
+    this.user = this.userService.getCurrentUser();
+    this.userService.getFollowers(this.user.id) .then (res => {
+      this.followers = res;
+    });
+
   }
 
 }

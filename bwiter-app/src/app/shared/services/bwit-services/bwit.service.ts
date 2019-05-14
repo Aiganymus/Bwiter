@@ -54,8 +54,8 @@ export class BwitService {
 
   constructor(private http: HttpClient) { }
 
-  getBwits(): Promise<Bwit[]> {
-    return this.http.get<Bwit[]>(`${this.DJANGO_SERVER}/api/bwits`).toPromise();
+  getBwits(id: number): Promise<Bwit[]> {
+    return this.http.get<Bwit[]>(`${this.DJANGO_SERVER}/api/following_bwits/${id}`).toPromise();
   }
 
   getBwit(id: string): Observable <Bwit> {
