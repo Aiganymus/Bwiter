@@ -37,3 +37,15 @@ def get_followers(request, pk):
     serialized = UserSerializer(followers, many=True)
     print(serialized.data)
     return Response(serialized.data)
+
+
+@api_view(['GET'])
+def get_following(request, pk):
+    follower = User.objects.get(pk=pk)
+    followed = [
+        connection.following
+        for connection in Connection.objects.filter(followed=follower)
+    ]
+    serialized = UserSerializer(followed, many=True)
+    print(serialized.data)
+    return Response(serialized.data)

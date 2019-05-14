@@ -21,5 +21,5 @@ urlpatterns = [
     path('api/', include('accounts.urls')),
     path('api/', include('bwits.urls')),
     path('api/', include('mutuals.urls')),
-    path('api/', include('comments.urls'))
+    path('api/', include('comments.urls')),
 ]
