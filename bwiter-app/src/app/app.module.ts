@@ -14,14 +14,12 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { AuthInterceptor } from './shared/services/auth-services/auth.interceptor';
-import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
-    LoginComponent,
-    NavbarComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
