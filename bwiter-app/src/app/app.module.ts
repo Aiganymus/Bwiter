@@ -21,6 +21,7 @@ import { FollowersComponent } from './followers/followers.component';
 import { AuthInterceptor } from './shared/services/auth-services/auth.interceptor';
 import { UserPageComponent } from './user-page/user-page.component';
 import { NewsFeedComponent } from './news-feed/news-feed.component';
+import { HodorComponent } from './hodor/hodor.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,9 @@ import { NewsFeedComponent } from './news-feed/news-feed.component';
     FollowersComponent,
     UserPageComponent,
     NewsFeedComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent,
+    HodorComponent
   ],
   imports: [
     BrowserModule,
