@@ -6,12 +6,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Bwit, LikeBwit
-from .serializers import BwitSerializer, LikeBwitSerializer
 from rest_framework import generics
 from django.contrib.auth.models import User
 from mutuals.models import Connection
 from itertools import chain
-
+from .serializers import BwitSerializer, LikeBwitSerializer
 
 @api_view(['GET', 'POST'])
 def bwits(request):

@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from accounts.serializers import UserSerializer,CustomUserSerializer
 from .models import Bwit, LikeBwit
+from comments.serializers import CommentSerializer
 
 
 class BwitSerializerTwo(serializers.ModelSerializer):
@@ -37,6 +38,7 @@ class BwitSerializer(serializers.ModelSerializer):
     created_at = serializers.DateTimeField()
     author = UserSerializer(read_only=True)
     bwit_likes = LikeBwitSerializer(read_only=True, many=True)
+    bwit_comments = CommentSerializer(read_only=True, many=True)
 
     class Meta:
         model = Bwit
@@ -46,6 +48,7 @@ class BwitSerializer(serializers.ModelSerializer):
             'created_at',
             'author',
             'bwit_likes',
+            'bwit_comments',
         )
 
 
