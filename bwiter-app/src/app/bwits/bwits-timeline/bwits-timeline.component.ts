@@ -14,8 +14,9 @@ export class BwitsTimelineComponent implements OnInit {
 
   ngOnInit() {
     this.bwitService.getBwits()
-        .subscribe(res => {
+        .then(res => {
           this.bwits = res;
+          console.log(this.bwits);
         });
   }
 

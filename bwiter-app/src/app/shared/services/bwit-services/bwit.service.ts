@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { of, Observable } from 'rxjs';
 import { Bwit } from '../../models/bwit';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -51,12 +52,16 @@ export class BwitService {
     }
   ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getBwits(): Observable<Bwit[]> {
-    return of<Bwit[]>(this.bwit);
+  getBwits(): Promise<Bwit[]> {
+    return this.http.get<Bwit[]>(`${this.DJANGO_SERVER}/api/bwits`).toPromise();
   }
+
   getBwit(id: string): Observable <Bwit> {
     return of<Bwit>(this.bwit[0]);
+  }
+  createBwit(bwit: FormData): Promise<Bwit>{
+    return this.http.post<Bwit>(`${this.DJANGO_SERVER}/api/bwits/`, bwit).toPromise();
   }
 }

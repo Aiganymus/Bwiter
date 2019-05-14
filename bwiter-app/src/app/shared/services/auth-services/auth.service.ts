@@ -11,8 +11,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  login(creds: User): Promise<Token> {
-    return this.http.post<Token>(`${this.DJANGO_SERVER}/api/login/`, creds).toPromise();
+  login(creds: User) {
+    return this.http.post(`${this.DJANGO_SERVER}/api/login/`, creds).toPromise();
   }
 
   isAuthenticated(): boolean {

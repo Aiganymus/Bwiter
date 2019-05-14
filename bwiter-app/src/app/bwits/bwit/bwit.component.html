@@ -13,7 +13,7 @@
     <blockquote class="body" [innerHTML]="bwit.body | tag"></blockquote>
 
     <ng-container *ngIf="bwit.picture">
-      <img class="bwit-picture" src="{{ bwit.picture }}" alt="Картинка">
+      <img class="bwit-picture" [src]="bwit.picture" alt="Картинка">
     </ng-container>
 
 

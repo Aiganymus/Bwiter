@@ -69,10 +69,10 @@ export class RegistrationComponent implements OnInit {
     this.loading = true;
 
     if (this.userId) {
-      this.userService.updateUser(input)
+      this.userService.updateUser(input, this.userId)
           .then(
             res => {
-              console.log(res);
+              this.userService.setCurrentUser(res);
               this.router.navigate(['/profile', this.userId, {outlets: {userPage: 'bwits'}}]);
             },
             err => {
@@ -90,6 +90,19 @@ export class RegistrationComponent implements OnInit {
             }
           );
     }
+  }
+
+  delete() {
+    this.userService.deleteUser(this.userId)
+        .then(
+          res => {
+            this.userService.destroyCurrentUser();
+            this.router.navigateByUrl('registration');
+          },
+          err => {
+            console.error(err);
+          }
+        );
   }
 
 }
