@@ -8,9 +8,10 @@ import { User } from '../../models/user';
 export class UserService {
   private currentUser: User = {
     id: 1,
-    username: '',
+    username: 'aiganym',
     profile_pic: 'https://unsplash.imgix.net/photo-1421986527537-888d998adb74?q=75&fm=jpg&s=e633562a1da53293c4dc391fd41ce41d',
-    nickname: ''
+    nickname: 'aiganymus',
+    joined_at: '2019-06-12 12:12:12'
   };
   DJANGO_SERVER = 'http://127.0.0.1:8000';
 

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'hodor',
+  selector: 'app-hodor',
   templateUrl: './hodor.component.html',
   styleUrls: ['./hodor.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class HodorComponent implements OnInit {
 
   constructor() { }
 
