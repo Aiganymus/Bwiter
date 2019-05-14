@@ -93,4 +93,9 @@ def following_bwits(request, pk):
     return Response(serializer.data)
 
 
-
+@api_view(["GET"])
+def all_likes(request):
+    if request.method == "GET":
+        likes = LikeBwit.objects.all()
+        serializer = LikeBwitSerializer(likes, many=True)
+        return Response(serializer.data)
