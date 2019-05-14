@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-md-6 mx-auto">
       <div class="card card-body">
-        <h3 class="text-center mb-4">Sign-up</h3>
+        <h3 ngIf="!userId" class="text-center mb-4">Sign-up</h3>
+        <h3 ngIf="userId" class="text-center mb-4">Update user</h3>
 
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <fieldset>
@@ -38,7 +39,7 @@
               Submit <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i>
             </button>
           </fieldset>
-          <p class="text-gray-soft text-center small mb-2 mt-2">
+          <p ngIf="!userId" class="text-gray-soft text-center small mb-2 mt-2">
             Already have an account? <a [routerLink]="'/login'">Sign in</a>
           </p>
         </form>

@@ -30,7 +30,7 @@
           </ul>
         </div>
         <form class="form-inline">
-          <button type="button" class="btn btn-outline-dark round">{{ mode }}</button>
+          <button type="button" class="btn btn-outline-dark round" [routerLink]="['/profile/edit', user.id]">{{ mode }}</button>
         </form>
       </nav>
     </div>

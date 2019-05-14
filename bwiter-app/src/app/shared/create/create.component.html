@@ -6,7 +6,7 @@
       <small *ngIf="body.length > 20 || submitted" id="passwordHelpBlock" class="form-text text-muted">
         Бвит не может содержать больше 20 букв. Хочешь больше - плати!
       </small>
-      <img *ngIf="picture" [src]="preivew" alt="">
+      <img class="preview" *ngIf="picture" [src]="preivew" alt="">
       <div class="posttweetbutcont">
         <label class="fileContainer">
           <i class="fa fa-image"></i>
@@ -18,5 +18,3 @@
     </div>
   </div>
 </div>
-
-

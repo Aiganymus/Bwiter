@@ -8,12 +8,10 @@ import { FollowersComponent } from './followers/followers.component';
 import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { CommentComponent } from './comment/comment.component';
 import { CommentEntityComponent } from './comment/comment-entity/comment-entity.component';
-import { CreateCommentComponent } from './comment/create-comment/create-comment.component';
 
 const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
-  {path: '',
-  component: BwitsTimelineComponent},
+  {path: '', pathMatch: 'full', component: NewsFeedComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profile/:id',
     component: UserPageComponent,
@@ -26,6 +24,7 @@ const routes: Routes = [
   {path: 'timeline', component: NewsFeedComponent},
   {path: 'bwit/:id/comment', component: CommentComponent},
   {path: 'comment', component: CommentEntityComponent},
+  {path: 'profile/edit/:id', component: RegistrationComponent},
 ];
 
 
