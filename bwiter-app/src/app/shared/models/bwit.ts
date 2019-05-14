@@ -1,11 +1,11 @@
 import { User } from './user';
 
 export interface Bwit {
-  id: number;
+  id?: number;
   body: string;
-  created_at: string;
-  author: User;
-  likes: number;
-  comments: number;
+  created_at?: string;
+  author?: User;
+  likes?: number;
+  comments?: number;
   picture?: string;
 }

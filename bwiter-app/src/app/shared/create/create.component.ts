@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../services/models/user';
+import { User } from '../models/user';
+import { UserService } from '../services/user-services/user.service';
 
 @Component({
   selector: 'app-create',
@@ -8,17 +9,28 @@ import { User } from '../services/models/user';
 })
 export class CreateComponent implements OnInit {
   submitted = false;
-  user: User = {
-    id: 1,
-    username: '',
-    avatar: 'https://unsplash.imgix.net/photo-1421986527537-888d998adb74?q=75&fm=jpg&s=e633562a1da53293c4dc391fd41ce41d',
-    nickname: ''
-  };
+  user: User;
   body = '';
+  picture = '';
+  preivew = '';
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.user = this.userService.getCurrentUser();
+  }
+
+  onFileChange(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.picture = file;
+
+      const reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.preivew = event.target.result;
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
   submit() {
