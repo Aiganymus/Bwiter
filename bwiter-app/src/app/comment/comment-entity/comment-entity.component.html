@@ -1,0 +1,14 @@
+<div class="bwit">
+  <img src="{{ comment.author.profile_pic }}" alt="avatar" class="avatar" />
+  <time class="bwit-time">{{ comment.created_at | date:'longDate':'+06':'ru-KZ' }}</time>
+  <div class="push">
+
+    <div class="user">
+      <div class="user-string">
+        <span class="name">{{ comment.author.nickname }}</span>
+        <span class="username">@{{ comment.author.username }}</span>
+      </div>
+    </div>
+    <blockquote class="body" [innerHTML]="comment.body | tag"></blockquote>
+  </div>
+</div>

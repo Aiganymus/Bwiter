@@ -6,6 +6,8 @@ import { BwitsTimelineComponent } from './bwits/bwits-timeline/bwits-timeline.co
 import { UserPageComponent } from './user-page/user-page.component';
 import { FollowersComponent } from './followers/followers.component';
 import { NewsFeedComponent } from './news-feed/news-feed.component';
+import { CommentComponent } from './comment/comment.component';
+import { CommentEntityComponent } from './comment/comment-entity/comment-entity.component';
 
 const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
@@ -20,6 +22,8 @@ const routes: Routes = [
     ]
   },
   {path: 'timeline', component: NewsFeedComponent},
+  {path: 'bwit/:id/comment', component: CommentComponent},
+  {path: 'comment', component: CommentEntityComponent},
   {path: 'profile/edit/:id', component: RegistrationComponent},
 ];
 
