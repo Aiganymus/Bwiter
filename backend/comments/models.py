@@ -8,7 +8,7 @@ class Comment(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='author_comment')
     bwit = models.ForeignKey(
-        Bwit, on_delete=models.CASCADE, related_name='bwit_comment')
+        Bwit, on_delete=models.CASCADE, related_name='bwit_comments')
 
 
 

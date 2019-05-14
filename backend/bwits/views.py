@@ -11,7 +11,7 @@ from rest_framework import generics
 from django.contrib.auth.models import User
 from mutuals.models import Connection
 from itertools import chain
-
+from .serializers import BwitSerializer, LikeBwitSerializer
 
 @api_view(['GET', 'POST'])
 def bwits(request):
@@ -93,4 +93,9 @@ def following_bwits(request, pk):
     return Response(serializer.data)
 
 
-
+@api_view(["GET"])
+def all_likes(request):
+    if request.method == "GET":
+        likes = LikeBwit.objects.all()
+        serializer = LikeBwitSerializer(likes, many=True)
+        return Response(serializer.data)
