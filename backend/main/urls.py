@@ -21,5 +21,8 @@ urlpatterns = [
     path('api/', include('accounts.urls')),
     path('api/', include('bwits.urls')),
     path('api/', include('mutuals.urls')),
+<<<<<<< HEAD
     path('api/', include('comments.urls'))
+=======
+>>>>>>> 3bf8e4a76f08f2b066936ee2363b08e8e23328cd
 ]
