@@ -25,7 +25,7 @@ export class CommentComponent implements OnInit {
         this.bwitId = param.get('id');
         if (this.bwitId) {
           this.bwitService.getBwit(this.bwitId)
-              .subscribe(res => {
+              .then(res => {
                 this.bwit = res;
                 console.log(this.bwit);
                 // this.commentService.getComments(this.bwitId)

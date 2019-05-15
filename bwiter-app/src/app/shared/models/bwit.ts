@@ -5,7 +5,7 @@ export interface Bwit {
   body: string;
   created_at?: string;
   author?: User;
-  likes?: number;
-  comments?: number;
+  bwit_likes?: [];
+  bwit_comments?: [];
   picture?: string;
 }
