@@ -1,5 +1,3 @@
 <div>
-  <ng-container *ngFor="let follow of folowers">
-    <app-follower></app-follower>
-  </ng-container>
+  <app-follower *ngFor="let follow of users" [user]="follow"></app-follower>
 </div>

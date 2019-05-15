@@ -16,7 +16,7 @@ export class UserService {
   }
 
   updateUser(input: FormData, id: string): Promise<User> {
-    return this.http.put<User>(`${this.DJANGO_SERVER}/api/users/${id}`, input).toPromise();
+    return this.http.put<User>(`${this.DJANGO_SERVER}/api/users/${id}/`, input).toPromise();
   }
 
   deleteUser(id: string) {
@@ -40,4 +40,7 @@ export class UserService {
     return this.http.get<User>(`${this.DJANGO_SERVER}/api/current`).toPromise();
   }
 
+  getFollowing(id: number): Promise<User[]>{
+    return this.http.get<User[]>(`${this.DJANGO_SERVER}/api/users/${id}/following`).toPromise();
+  }
 }
