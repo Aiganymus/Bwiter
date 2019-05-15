@@ -5,6 +5,7 @@ import { BwitsTimelineComponent } from './bwits-timeline/bwits-timeline.componen
 import { TagPipe } from './pipes/tag.pipe';
 import { CreateComponent } from '../shared/create/create.component';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   exports: [
     BwitComponent,

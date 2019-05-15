@@ -16,15 +16,11 @@ export class UserService {
   }
 
   updateUser(input: FormData, id: string): Promise<User> {
-    return this.http.put<User>(`${this.DJANGO_SERVER}/api/users/${id}`, input).toPromise();
+    return this.http.put<User>(`${this.DJANGO_SERVER}/api/users/${id}/`, input).toPromise();
   }
 
   deleteUser(id: string) {
     return this.http.delete<User>(`${this.DJANGO_SERVER}/api/users/${id}`).toPromise();
-  }
-
-  getCurrentUser(): User {
-    return this.currentUser;
   }
 
   setCurrentUser(user: User) {
@@ -35,7 +31,25 @@ export class UserService {
     this.currentUser = undefined;
     localStorage.removeItem('token');
   }
+
   getFollowers(id: number): Promise<User[]>{
     return this.http.get<User[]>(`${this.DJANGO_SERVER}/api/users/${id}/followers`).toPromise();
+  }
+
+  getCurrentUser(): Promise<User> {
+    return this.http.get<User>(`${this.DJANGO_SERVER}/api/current`).toPromise();
+  }
+
+  getFollowing(id: number): Promise<User[]>{
+    return this.http.get<User[]>(`${this.DJANGO_SERVER}/api/users/${id}/following`).toPromise();
+  }
+
+  getAllUsers(): Promise<User[]> {
+    return this.http.get<User[]>(`${this.DJANGO_SERVER}/api/all_users/`).toPromise();
+  }
+
+  makeMutual(id: number): Promise<any> {
+    console.log(id);
+    return this.http.post<any>(`${this.DJANGO_SERVER}/api/connections/${id}/`, {}).toPromise();
   }
 }

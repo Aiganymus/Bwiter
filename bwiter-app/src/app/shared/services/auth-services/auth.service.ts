@@ -26,4 +26,7 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
+  logout() {
+    this.http.post(`${this.DJANGO_SERVER}/api/logout/`, {});
+  }
 }

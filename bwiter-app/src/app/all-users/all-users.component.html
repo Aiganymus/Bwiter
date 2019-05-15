@@ -1,0 +1,4 @@
+<app-hodor></app-hodor>
+<div *ngIf="users">
+  <app-follower *ngFor="let user of users" [user]="user"></app-follower>
+</div>

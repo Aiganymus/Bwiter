@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'src/app/shared/models/user';
 import { UserService } from 'src/app/shared/services/user-services/user.service';
+import { CommentService } from 'src/app/shared/services/comment-services/comment.service';
 
 @Component({
   selector: 'app-create-comment',
@@ -13,18 +14,23 @@ export class CreateCommentComponent implements OnInit {
   submitted = false;
   user: User;
   body = '';
-  picture = '';
-  preivew = '';
-  constructor(private userService: UserService) { }
+  // picture = '';
+  // preivew = '';
+  constructor(private userService: UserService, private commentService:CommentService) { }
 
   ngOnInit() {
-    this.user = this.userService.getCurrentUser();
+    this.userService.getCurrentUser()
+      .then(res => {
+        this.user = res;
+      });
   }
   submit() {
     if (!this.body || this.body.length > 20) {
       this.submitted = true;
       return;
     }
+    console.log(this.body, this.bwitId)
+    this.commentService.postComment(this.body, this.bwitId).then(x=> {window.location.reload()})
   }
 
 }

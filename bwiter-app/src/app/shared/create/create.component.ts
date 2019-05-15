@@ -18,10 +18,14 @@ export class CreateComponent implements OnInit {
   preivew = '';
 
   constructor(private userService: UserService,
-              private bwitService: BwitService, private router:Router) { }
+              private bwitService: BwitService,
+              private router: Router) { }
 
   ngOnInit() {
-    this.user = this.userService.getCurrentUser();
+    this.userService.getCurrentUser()
+    .then(res => {
+      this.user = res;
+    });
   }
 
   onFileChange(event) {
@@ -52,8 +56,12 @@ export class CreateComponent implements OnInit {
       picture: this.picture,
     };
     console.log(bwit);
-    this.bwitService.createBwit(input);
-    this.router.navigateByUrl('');
+    this.bwitService.createBwit(input)
+        .then(res => {
+          console.log(res);
+          location.reload();
+          this.router.navigateByUrl('');
+        });
   }
 
 }

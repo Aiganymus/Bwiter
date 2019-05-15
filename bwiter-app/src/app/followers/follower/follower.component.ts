@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'src/app/shared/models/user';
+import { Route, Router } from '@angular/router';
+import { UserService } from 'src/app/shared/services/user-services/user.service';
 
 @Component({
   selector: 'app-follower',
@@ -7,18 +9,24 @@ import { User } from 'src/app/shared/models/user';
   styleUrls: ['./follower.component.scss']
 })
 export class FollowerComponent implements OnInit {
-  user: User = {
-    id: 1,
-    username: 'the_example',
-    nickname: 'Example User',
-    profile_pic: 'https://unsplash.imgix.net/photo-1421986527537-888d998adb74?q=75&fm=jpg&s=e633562a1da53293c4dc391fd41ce41d',
-    status: 'dksjfhkdlsjflksdjfl',
-    joined_at: '2019-05-12 12:12:12',
-  };
+  @Input() user: User;
+  mode = 'читаю';
 
-  constructor() { }
+  constructor(private route: Router,
+              private userService: UserService) { }
 
   ngOnInit() {
+    if (this.route.url.includes('users')) {
+      this.mode = 'follow';
+    }
+  }
+
+  follow() {
+    this.userService.makeMutual(this.user.id)
+        .then(res => {
+          console.log(res);
+          window.location.reload();
+        });
   }
 
 }

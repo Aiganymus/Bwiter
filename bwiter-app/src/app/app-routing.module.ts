@@ -8,6 +8,7 @@ import { FollowersComponent } from './followers/followers.component';
 import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { CommentComponent } from './comment/comment.component';
 import { AuthGuard } from './shared/services/auth-services/auth.guard';
+import { AllUsersComponent } from './all-users/all-users.component';
 
 const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
@@ -27,7 +28,10 @@ const routes: Routes = [
   {path: 'timeline',
     component: NewsFeedComponent,
     canActivate: [AuthGuard]},
-  {path: 'bwit/:id/comment',
+    {path: 'users',
+    component: AllUsersComponent,
+    canActivate: [AuthGuard]},
+  {path: 'bwit/comment/:id',
     component: CommentComponent,
     canActivate: [AuthGuard]},
   {path: 'profile/edit/:id',

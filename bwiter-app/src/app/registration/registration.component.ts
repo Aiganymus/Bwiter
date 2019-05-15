@@ -26,14 +26,17 @@ export class RegistrationComponent implements OnInit {
     this.route.paramMap.subscribe(param => {
       this.userId = param.get('id');
       if (this.userId) {
-        this.user = this.userService.getCurrentUser();
-        this.form = new FormGroup({
-          username: new FormControl(this.user.username, Validators.required),
-          nickname: new FormControl(this.user.nickname, Validators.required),
-          profile_pic: new FormControl(this.user.profile_pic, Validators.required),
-          status: new FormControl(this.user.status, Validators.required),
-          password: new FormControl(this.user.password, Validators.required),
-        });
+        this.userService.getCurrentUser()
+          .then(res => {
+            this.user = res;
+            this.form = new FormGroup({
+              username: new FormControl(this.user.username, Validators.required),
+              nickname: new FormControl(this.user.nickname, Validators.required),
+              profile_pic: new FormControl(this.user.profile_pic, Validators.required),
+              status: new FormControl(this.user.status, Validators.required),
+              password: new FormControl(this.user.password, Validators.required),
+            });
+          });
       } else {
         this.createForm();
       }
