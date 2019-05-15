@@ -27,7 +27,7 @@ const routes: Routes = [
   {path: 'timeline',
     component: NewsFeedComponent,
     canActivate: [AuthGuard]},
-  {path: 'bwit/:id/comment',
+  {path: 'bwit/comment/:id',
     component: CommentComponent,
     canActivate: [AuthGuard]},
   {path: 'profile/edit/:id',

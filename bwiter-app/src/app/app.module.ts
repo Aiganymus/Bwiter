@@ -25,6 +25,7 @@ import { HodorComponent } from './hodor/hodor.component';
 import { CreateCommentComponent } from './comment/create-comment/create-comment.component';
 import { CommentEntityComponent } from './comment/comment-entity/comment-entity.component';
 import { CommentComponent } from './comment/comment.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { CommentComponent } from './comment/comment.component';
     FormsModule,
     BwitsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers: [
     {
