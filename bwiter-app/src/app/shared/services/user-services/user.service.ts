@@ -49,6 +49,7 @@ export class UserService {
   }
 
   makeMutual(id: number): Promise<any> {
+    console.log(id);
     return this.http.post<any>(`${this.DJANGO_SERVER}/api/connections/${id}/`, {}).toPromise();
   }
 }
