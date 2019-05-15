@@ -11,7 +11,7 @@ from rest_framework.parsers import FileUploadParser, JSONParser, FormParser, Mul
 from mutuals.models import Connection
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-
+from bwits.models import Bwit
 from django.http import Http404
 
 # Create your views here.
@@ -55,10 +55,7 @@ def login(request):
     user = serializer.validated_data.get('user')
     token, created = Token.objects.get_or_create(user=user)
     serializer_user = UserSerializer(user)
-    return Response({
-        'token': token.key,
-        'user': serializer_user.data
-    })
+    return Response({'token': token.key, 'user': serializer_user.data})
 
 
 @api_view(['POST'])
@@ -112,12 +109,44 @@ def current_user(request):
     serializer = UserSerializer(user)
     print(user)
     print(serializer.data)
-    return Response(serializer.data, status= status.HTTP_200_OK)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['get', 'post'])
 def bwits_list(request):
     return "the last things you had to do"
+
+
+@api_view(['get'])
+def get_user_bwits_count(request, pk):
+    bwits = Bwit.objects.filter(author=request.user)
+    return Response({'bwits_count': len(bwits)})
+
+
+@api_view(['get'])
+def get_user_bwits_count(request, pk):
+    bwits = Bwit.objects.filter(author=request.user)
+    return Response({'bwits_count': len(bwits)})
+
+
+@api_view(['get'])
+def get_user_followers_count(request, pk):
+    followed = User.objects.get(pk=pk)
+    followers = [
+        connection.following
+        for connection in Connection.objects.filter(followed=followed)
+    ]
+    return Response({'bwits_count': len(followers)})
+
+
+@api_view(['get'])
+def get_user_followed_count(request, pk):
+    following = User.objects.get(pk=pk)
+    followed = [
+        connection.followed
+        for connection in Connection.objects.filter(following=following)
+    ]
+    return Response({'bwits_count': len(followed)})
 
 
 @api_view(['DELETE', 'POST'])
@@ -150,6 +179,8 @@ class UserList(generics.ListAPIView):
 
     def get_serializer_class(self):
         return UserSerializer
+
+
 # @api_view([])
 # def delete_connection(request, pk):
 #     return Response(status=status.HTTP_204_NO_CONTENT)
