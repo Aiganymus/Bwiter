@@ -18,10 +18,14 @@ export class CreateComponent implements OnInit {
   preivew = '';
 
   constructor(private userService: UserService,
-              private bwitService: BwitService, private router:Router) { }
+              private bwitService: BwitService,
+              private router: Router) { }
 
   ngOnInit() {
-    this.user = this.userService.getCurrentUser();
+    this.userService.getCurrentUser()
+    .then(res => {
+      this.user = res;
+    });
   }
 
   onFileChange(event) {

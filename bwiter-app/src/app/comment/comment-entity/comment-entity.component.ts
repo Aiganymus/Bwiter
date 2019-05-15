@@ -19,6 +19,9 @@ export class CommentEntityComponent implements OnInit {
               private userService: UserService) { }
 
   ngOnInit() {
-    this.myComment = this.userService.getCurrentUser().id === this.comment.author.id;
+    this.userService.getCurrentUser()
+        .then(res => {
+          this.myComment = res.id === this.comment.author.id;
+        });
   }
 }

@@ -23,10 +23,6 @@ export class UserService {
     return this.http.delete<User>(`${this.DJANGO_SERVER}/api/users/${id}`).toPromise();
   }
 
-  getCurrentUser(): User {
-    return this.currentUser;
-  }
-
   setCurrentUser(user: User) {
     this.currentUser = user;
   }
@@ -35,7 +31,13 @@ export class UserService {
     this.currentUser = undefined;
     localStorage.removeItem('token');
   }
+
   getFollowers(id: number): Promise<User[]>{
     return this.http.get<User[]>(`${this.DJANGO_SERVER}/api/users/${id}/followers`).toPromise();
   }
+
+  getCurrentUser(): Promise<User> {
+    return this.http.get<User>(`${this.DJANGO_SERVER}/api/current`).toPromise();
+  }
+
 }
