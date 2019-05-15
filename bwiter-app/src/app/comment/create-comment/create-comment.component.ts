@@ -14,8 +14,8 @@ export class CreateCommentComponent implements OnInit {
   submitted = false;
   user: User;
   body = '';
-  picture = '';
-  preivew = '';
+  // picture = '';
+  // preivew = '';
   constructor(private userService: UserService, private commentService:CommentService) { }
 
   ngOnInit() {
@@ -26,10 +26,11 @@ export class CreateCommentComponent implements OnInit {
   }
   submit() {
     if (!this.body || this.body.length > 20) {
-      this.commentService.postComment(this.body, this.bwitId)
       this.submitted = true;
       return;
     }
+    console.log(this.body, this.bwitId)
+    this.commentService.postComment(this.body, this.bwitId).then(x=> {window.location.reload()})
   }
 
 }

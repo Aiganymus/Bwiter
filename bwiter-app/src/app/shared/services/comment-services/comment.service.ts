@@ -29,7 +29,8 @@ export class CommentService {
   }
 
 
-  postComment(body:string, id:string): Promise<Comment> {
-    return this.http.post<Comment>(`${this.DJANGO_SERVER}/api/bwits/${id}/comments/`, body).toPromise();
+  postComment(body:string, id:string) {
+    let data = {'body':body}
+    return this.http.post(`${this.DJANGO_SERVER}/api/bwits/${id}/comments/`, data).toPromise();
   }
 }
