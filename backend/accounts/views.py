@@ -175,8 +175,14 @@ class UserList(generics.ListAPIView):
     permission_classes = (IsAuthenticated, )
 
     def get_queryset(self):
+        following = self.request.user
+        followed = [
+            connection.followed
+            for connection in Connection.objects.filter(following=following)
+        ]
         return [
-            user for user in User.objects.all() if user != self.request.user
+            user for user in User.objects.all()
+            if user != self.request.user and not user in followed
         ]
 
     def get_serializer_class(self):
