@@ -19,7 +19,6 @@ export class BwitComponent implements OnInit {
     e.target.parentElement.style.color = 'pink';
   }
 
-  showComments(e) {
-    console.log(e.target);
+  showComments() {
   }
 }

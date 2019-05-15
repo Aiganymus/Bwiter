@@ -18,7 +18,7 @@
 
 
     <div class="icons">
-      <div class="icon comment" (click)="showComments($event)">
+      <div class="icon comment" (click)="showComments()">
         <i class="fa fa-comment"></i>
         <div class="icon-number"> {{ bwit.comments }}</div>
       </div>
@@ -26,6 +26,10 @@
         <i class="fa fa-heart" (click)="pressLike($event)"></i>
         <div class="icon-number"> {{ bwit.likes }}</div>
       </div>
+      <div class="icon delete">
+          <i class="fa fa-heart" (click)="deleteBwit(bwit.id)"></i>
+          <div class="icon-number"> {{ bwit.likes }}</div>
+        </div>
     </div>
 
   </div>
