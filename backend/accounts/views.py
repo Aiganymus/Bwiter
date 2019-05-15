@@ -175,7 +175,9 @@ class UserList(generics.ListAPIView):
     permission_classes = (IsAuthenticated, )
 
     def get_queryset(self):
-        return User.objects.all()
+        return [
+            user for user in User.objects.all() if user != self.request.user
+        ]
 
     def get_serializer_class(self):
         return UserSerializer
