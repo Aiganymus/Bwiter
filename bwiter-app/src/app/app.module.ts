@@ -43,7 +43,7 @@ import { CommentComponent } from './comment/comment.component';
     HodorComponent,
     CreateCommentComponent,
     CommentEntityComponent,
-    CommentComponent
+    CommentComponent,
   ],
   imports: [
     BrowserModule,

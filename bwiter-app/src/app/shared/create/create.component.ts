@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { User } from '../models/user';
 import { UserService } from '../services/user-services/user.service';
 import { Bwit } from '../models/bwit';
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
+  @Output() newBwit = new EventEmitter();
   submitted = false;
   user: User;
   body = '';
@@ -28,7 +29,6 @@ export class CreateComponent implements OnInit {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.picture = file;
-      console.log(this.picture)
       const reader = new FileReader();
       reader.onload = (event: any) => {
         this.preivew = event.target.result;
@@ -51,8 +51,13 @@ export class CreateComponent implements OnInit {
       body: this.body,
       picture: this.picture,
     };
-    console.log(bwit);
-    this.bwitService.createBwit(input);
+    this.bwitService.createBwit(input)
+        .then(res => {
+          this.body = '';
+          this.preivew = '';
+          this.picture = '';
+          this.newBwit.emit(res);
+        });
     this.router.navigateByUrl('');
   }
 

@@ -38,4 +38,7 @@ export class UserService {
   getFollowers(id: number): Promise<User[]>{
     return this.http.get<User[]>(`${this.DJANGO_SERVER}/api/users/${id}/followers`).toPromise();
   }
+  getFollowing(id: number): Promise<User[]>{
+    return this.http.get<User[]>(`${this.DJANGO_SERVER}/api/users/${id}/following`).toPromise();
+  }
 }

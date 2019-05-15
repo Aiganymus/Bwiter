@@ -57,11 +57,14 @@ export class BwitService {
   getBwits(id: number): Promise<Bwit[]> {
     return this.http.get<Bwit[]>(`${this.DJANGO_SERVER}/api/following_bwits/${id}`).toPromise();
   }
-
+  getUserBwits(): Promise<Bwit[]> {
+    return this.http.get<Bwit[]>(`${this.DJANGO_SERVER}/api/bwits/`).toPromise();
+  }
   getBwit(id: string): Observable <Bwit> {
     return of<Bwit>(this.bwit[0]);
   }
-  createBwit(bwit: FormData): Promise<Bwit>{
+  createBwit(bwit: FormData): Promise<Bwit> {
     return this.http.post<Bwit>(`${this.DJANGO_SERVER}/api/bwits/`, bwit).toPromise();
   }
+
 }

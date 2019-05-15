@@ -3,11 +3,13 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from accounts.serializers import UserSerializer
-from .serializers import  ConnectionSerializer
+from .serializers import ConnectionSerializer
 from django.contrib.auth.models import User
 from .models import Connection
 
 # Create your views here.
+
+
 @api_view(['DELETE', 'POST'])
 def create_or_delete_connection(request, pk):
     if request.method == 'POST':
@@ -41,10 +43,10 @@ def get_followers(request, pk):
 
 @api_view(['GET'])
 def get_following(request, pk):
-    follower = User.objects.get(pk=pk)
+    following = User.objects.get(pk=pk)
     followed = [
-        connection.following
-        for connection in Connection.objects.filter(followed=follower)
+        connection.followed
+        for connection in Connection.objects.filter(following=following)
     ]
     serialized = UserSerializer(followed, many=True)
     print(serialized.data)

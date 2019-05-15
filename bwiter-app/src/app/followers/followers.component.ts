@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../shared/services/user-services/user.service';
 import { User } from '../shared/models/user';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-followers',
@@ -9,18 +9,25 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./followers.component.scss']
 })
 export class FollowersComponent implements OnInit {
+  public mode = false;
+  users: User[];
   user: User;
-  public followers:User[]=[];
 
   constructor(private userService: UserService,
-    private activatedRoute: ActivatedRoute) { }
+              private router: Router) { }
 
   ngOnInit() {
     this.user = this.userService.getCurrentUser();
-    this.userService.getFollowers(this.user.id) .then (res => {
-      this.followers = res;
-    });
-
+    if (this.router.url.includes('followers')) {
+      this.userService.getFollowing(this.user.id)
+          .then(res => {
+            this.users = res;
+          });
+    } else {
+      this.userService.getFollowers(this.user.id)
+      .then(res => {
+        this.users = res;
+      });
+    }
   }
-
 }
