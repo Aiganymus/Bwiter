@@ -16,17 +16,19 @@ export class FollowerComponent implements OnInit {
               private userService: UserService) { }
 
   ngOnInit() {
-    if (this.route.url.includes('users')) {
+    if (this.route.url.includes('users') || this.route.url.includes('following')) {
       this.mode = 'follow';
     }
   }
 
   follow() {
-    this.userService.makeMutual(this.user.id)
+    if (this.mode === 'follow') {
+      this.userService.makeMutual(this.user.id)
         .then(res => {
           console.log(res);
           window.location.reload();
         });
+    }
   }
 
 }

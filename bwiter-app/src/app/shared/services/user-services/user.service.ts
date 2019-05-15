@@ -52,4 +52,16 @@ export class UserService {
     console.log(id);
     return this.http.post<any>(`${this.DJANGO_SERVER}/api/connections/${id}/`, {}).toPromise();
   }
+
+  bwitsCount(id: number): Promise<any> {
+    return this.http.get<any>(`${this.DJANGO_SERVER}/api/users/${id}/bwit_count/`).toPromise();
+  }
+
+  followersCount(id: number): Promise<any> {
+    return this.http.get<any>(`${this.DJANGO_SERVER}/api/users/${id}/followers_count/`).toPromise();
+  }
+
+  followingsCount(id: number): Promise<any> {
+    return this.http.get<any>(`${this.DJANGO_SERVER}/api/users/${id}/followed_count/`).toPromise();
+  }
 }

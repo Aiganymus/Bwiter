@@ -10,7 +10,7 @@ class ConnectionSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('Already following')
 
     following_id = serializers.IntegerField(
-        required=True, validators=[already_following])
+        required=True)
 
     class Meta:
         model = Connection

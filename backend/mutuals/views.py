@@ -12,11 +12,12 @@ from .models import Connection
 def create_or_delete_connection(request, pk):
     if request.method == 'POST':
         print(pk, request.user.id)
-        user = User.objects.get(pk=pk)
+        # user = User.objects.get(pk=pk)
         serializer = ConnectionSerializer(data={
             'followed': pk,
             'following_id': request.user.id
         })
+        print(serializer.is_valid())
         if serializer.is_valid():
             print(serializer.validated_data)
             serializer.save()
