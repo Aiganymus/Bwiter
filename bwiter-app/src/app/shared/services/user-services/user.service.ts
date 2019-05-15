@@ -43,4 +43,12 @@ export class UserService {
   getFollowing(id: number): Promise<User[]>{
     return this.http.get<User[]>(`${this.DJANGO_SERVER}/api/users/${id}/following`).toPromise();
   }
+
+  getAllUsers(): Promise<User[]> {
+    return this.http.get<User[]>(`${this.DJANGO_SERVER}/api/all_users/`).toPromise();
+  }
+
+  makeMutual(id: number): Promise<any> {
+    return this.http.post<any>(`${this.DJANGO_SERVER}/api/connections/${id}/`, {}).toPromise();
+  }
 }

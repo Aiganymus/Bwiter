@@ -26,6 +26,7 @@ import { CreateCommentComponent } from './comment/create-comment/create-comment.
 import { CommentEntityComponent } from './comment/comment-entity/comment-entity.component';
 import { CommentComponent } from './comment/comment.component';
 import { RouterModule } from '@angular/router';
+import { AllUsersComponent } from './all-users/all-users.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { RouterModule } from '@angular/router';
     HodorComponent,
     CreateCommentComponent,
     CommentEntityComponent,
-    CommentComponent
+    CommentComponent,
+    AllUsersComponent
   ],
   imports: [
     BrowserModule,

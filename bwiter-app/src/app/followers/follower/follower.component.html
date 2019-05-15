@@ -3,7 +3,7 @@
     <div class="">
       <img class="image card__image card__image-geoff " src="{{ user.profile_pic }}" alt="">
     </div>
-    <button type="button" class="btn btn-secondary btn-sm custom">Читаю</button>
+    <button type="button" class="btn btn-secondary btn-sm custom" (click)="follow()">{{mode}}</button>
     <div class="info">
       <div class="name bold">
         {{ user.nickname }}
