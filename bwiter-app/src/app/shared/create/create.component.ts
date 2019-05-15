@@ -56,8 +56,12 @@ export class CreateComponent implements OnInit {
       picture: this.picture,
     };
     console.log(bwit);
-    this.bwitService.createBwit(input);
-    this.router.navigateByUrl('');
+    this.bwitService.createBwit(input)
+        .then(res => {
+          console.log(res);
+          location.reload();
+          this.router.navigateByUrl('');
+        });
   }
 
 }

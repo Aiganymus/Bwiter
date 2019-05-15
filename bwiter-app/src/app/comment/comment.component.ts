@@ -25,20 +25,11 @@ export class CommentComponent implements OnInit {
         this.bwitId = param.get('id');
         if (this.bwitId) {
           this.bwitService.getBwit(this.bwitId)
-              .subscribe(res => {
+              .then(res => {
                 this.bwit = res;
                 console.log(this.bwit);
-                // this.commentService.getComments(this.bwitId)
-                //     .then(
-                //       results => {
-                //         this.comments = results;
-                //       },
-                //       err => {
-                //         console.error(err);
-                //       }
-                //     );
-                this.comments = this.commentService.getComments(this.bwitId);
-                console.log(this.comments);
+                // this.comments = this.commentService.getComments(this.bwitId);
+                // console.log(this.comments);
               });
         }
       });
