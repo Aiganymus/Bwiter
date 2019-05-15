@@ -37,7 +37,8 @@ export class CommentComponent implements OnInit {
                 //         console.error(err);
                 //       }
                 //     );
-                this.comments = this.commentService.getComments(this.bwitId);
+                this.commentService.getComments(this.bwitId).then(x=>{
+                this.comments=x });
                 console.log(this.comments);
               });
         }

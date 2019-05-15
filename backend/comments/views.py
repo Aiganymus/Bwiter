@@ -15,7 +15,7 @@ def comments(request, pk):
         bwit = Bwit.objects.get(id=pk)
     except Bwit.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
-    if request.method =='GET':
+    if request.method == 'GET':
         comments = Comment.objects.filter(bwit=bwit)
         serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -24,11 +24,12 @@ def comments(request, pk):
         if serializer.is_valid():
             serializer.save(author=request.user, bwit=bwit)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        return Response(
+            serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-@api_view(['GET','PUT','DELETE'])
-def comments_detail(request,pk):
+@api_view(['GET', 'PUT', 'DELETE'])
+def comments_detail(request, pk):
     try:
         comment = Comment.objects.get(id=pk)
     except Comment.DoesNotExist:

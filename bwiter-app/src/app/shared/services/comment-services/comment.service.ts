@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Comment } from '../../models/comment';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,9 +18,13 @@ export class CommentService {
       joined_at: '2019-06-12 12:12:12'
     }
   }];
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  getComments(id: string) {
-    return this.comments;
+  // getComments(id: string) {
+  //   return this.comments;
+  // }
+
+  getComments(id:string): Promise<Comment[]> {
+    return this.http.get<Comment[]>(`${this.DJANGO_SERVER}/api/bwits/${id}/comments`).toPromise();
   }
 }
