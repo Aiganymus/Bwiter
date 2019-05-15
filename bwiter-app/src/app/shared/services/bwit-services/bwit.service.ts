@@ -22,7 +22,12 @@ export class BwitService {
   getBwit(id: string): Promise<Bwit> {
     return this.http.get<Bwit>(`${this.DJANGO_SERVER}/api/bwits/${id}`).toPromise();
   }
+
   createBwit(bwit: FormData): Promise<Bwit> {
     return this.http.post<Bwit>(`${this.DJANGO_SERVER}/api/bwits/`, bwit).toPromise();
+  }
+
+  deleteBwit(id: number): Promise<object> {
+    return this.http.delete(`${this.DJANGO_SERVER}/api/bwits/${id}`).toPromise();
   }
 }

@@ -1,4 +1,4 @@
-<div *ngIf="bwit" class="bwit">
+<div *ngIf="bwit && user" class="bwit">
   <img src="{{ bwit.author.profile_pic }}" alt="avatar" class="avatar" />
   <time class="bwit-time">{{ bwit.created_at | date:'longDate':'+06':'ru-KZ' }}</time>
   <div class="push">
@@ -25,6 +25,9 @@
       <div class="icon heart">
         <i class="fa fa-heart" (click)="pressLike($event)"></i>
         <div class="icon-number"> {{ bwit.bwit_likes.length }}</div>
+      </div>
+      <div class="icon trash" *ngIf="user.id === bwit.author.id">
+        <i class="fa fa-trash" (click)="delete()"></i>
       </div>
     </div>
 
