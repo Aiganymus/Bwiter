@@ -109,11 +109,10 @@ def get_followers(request, pk):
 @api_view(['GET'])
 def current_user(request):
     user = request.user
-    return Response({
-        'username': user.username,
-        'email': user.email,
-        'id': user.id,
-    })
+    serializer = UserSerializer(user)
+    print(user)
+    print(serializer.data)
+    return Response(serializer.data, status= status.HTTP_200_OK)
 
 
 @api_view(['get', 'post'])
