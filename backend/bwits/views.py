@@ -12,6 +12,8 @@ from django.contrib.auth.models import User
 from mutuals.models import Connection
 from itertools import chain
 from .serializers import BwitSerializer, LikeBwitSerializer
+from rest_framework.permissions import IsAuthenticated
+
 
 @api_view(['GET', 'POST'])
 def bwits(request):
@@ -99,3 +101,10 @@ def all_likes(request):
         likes = LikeBwit.objects.all()
         serializer = LikeBwitSerializer(likes, many=True)
         return Response(serializer.data)
+
+
+class LikesList(generics.ListAPIView):
+    permission_classes = (IsAuthenticated,)
+    queryset = LikeBwit.objects.all()
+    serializer_class = LikeBwitSerializer
+

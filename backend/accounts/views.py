@@ -9,6 +9,8 @@ from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 from rest_framework.parsers import FileUploadParser, JSONParser, FormParser, MultiPartParser
 from mutuals.models import Connection
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 
 from django.http import Http404
 
@@ -139,6 +141,16 @@ def create_or_delete_connection(request, pk):
     return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
 
 
+class UserList(generics.ListAPIView):
+    # queryset = Category.objects.all()
+    # serializer_class = CategorySerializer2
+    permission_classes = (IsAuthenticated, )
+
+    def get_queryset(self):
+        return User.objects.all()
+
+    def get_serializer_class(self):
+        return UserSerializer
 # @api_view([])
 # def delete_connection(request, pk):
 #     return Response(status=status.HTTP_204_NO_CONTENT)

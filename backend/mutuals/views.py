@@ -11,12 +11,16 @@ from .models import Connection
 @api_view(['DELETE', 'POST'])
 def create_or_delete_connection(request, pk):
     if request.method == 'POST':
-        serializer = ConnectionSerializer({
-            'followed': f'{pk}',
-            'following': f'{request.id}'
+        print(pk, request.user.id)
+        user = User.objects.get(pk=pk)
+        serializer = ConnectionSerializer(data={
+            'followed': pk,
+            'following_id': request.user.id
         })
         if serializer.is_valid():
+            print(serializer.validated_data)
             serializer.save()
+            # print(serializer.data)
             return Response(serializer.data)
     elif request.method == 'DELETE':
         connection = Connection.objects.get(
@@ -41,10 +45,10 @@ def get_followers(request, pk):
 
 @api_view(['GET'])
 def get_following(request, pk):
-    follower = User.objects.get(pk=pk)
+    following = User.objects.get(pk=pk)
     followed = [
-        connection.following
-        for connection in Connection.objects.filter(followed=follower)
+        connection.followed
+        for connection in Connection.objects.filter(following=following)
     ]
     serialized = UserSerializer(followed, many=True)
     print(serialized.data)

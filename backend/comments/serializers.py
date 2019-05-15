@@ -20,11 +20,22 @@ class BwitSerializerOne(serializers.ModelSerializer):
         )
 
 
-class CommentSerializer(serializers.ModelSerializer):
+# class CommentSerializer(serializers.ModelSerializer):
+#     body = serializers.CharField(max_length=21)
+#     author = UserSerializer(read_only=True)
+#     bwit = BwitSerializerOne(read_only=True)
+#
+#     class Meta:
+#         model = Comment
+#         fields = '__all__'
+
+
+class CommentSerializer(serializers.Serializer):
     body = serializers.CharField(max_length=21)
     author = UserSerializer(read_only=True)
     bwit = BwitSerializerOne(read_only=True)
 
-    class Meta:
-        model = Comment
-        fields = '__all__'
+    def create(self, validated_data):
+        comment = Comment(**validated_data)
+        comment.save()
+        return comment

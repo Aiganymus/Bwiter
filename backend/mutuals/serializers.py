@@ -6,15 +6,14 @@ from django.contrib.auth.hashers import make_password
 
 class ConnectionSerializer(serializers.ModelSerializer):
     def already_following(value):
-        if Connection.objects.filter(following=value).exists():
+        if Connection.objects.filter(following_id=value).exists():
             raise serializers.ValidationError('Already following')
 
-    followed = serializers.IntegerField(required=True, validators=[already_following])
+    following_id = serializers.IntegerField(
+        required=True, validators=[already_following])
 
     class Meta:
         model = Connection
-        fields = ('followed', 'following', 'created')
+        fields = ('followed', 'following_id', 'created')
         read_only_fields = 'created',
-
-
 

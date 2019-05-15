@@ -1,4 +1,4 @@
-from .views import bwit_detail, bwits, following_bwits, likes_bwit, all_likes
+from .views import bwit_detail, bwits, following_bwits, likes_bwit, all_likes, LikesList
 from django.urls import path
 
 urlpatterns = [
@@ -7,4 +7,5 @@ urlpatterns = [
     path('bwits/<int:pk>/', bwit_detail, name='bwit_detail'),
     path('bwits/<int:pk>/likes/', likes_bwit, name='likes_bwit'),
     path('likes/', all_likes, name='all_likes'),
+    path('all_likes/', LikesList.as_view(), name='second'),
 ]

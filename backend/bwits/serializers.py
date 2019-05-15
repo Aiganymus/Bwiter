@@ -37,17 +37,30 @@ class BwitSerializerTwo(serializers.ModelSerializer):
             # 'author',
         )
 
-class LikeBwitSerializer(serializers.ModelSerializer):
+# class LikeBwitSerializer(serializers.ModelSerializer):
+#     user = UserSerializer(read_only=True)
+#     bwit = BwitSerializerTwo(read_only=True)
+#
+#     class Meta:
+#         model = LikeBwit
+#         # fields = ['user']
+#         fields = '__all__'
+
+
+
+class LikeBwitSerializer(serializers.Serializer):
     user = UserSerializer(read_only=True)
     bwit = BwitSerializerTwo(read_only=True)
 
-    class Meta:
-        model = LikeBwit
-        # fields = ['user']
-        fields = '__all__'
+    def create(self, validated_data):
+        like_bwit = LikeBwit(**validated_data)
+        like_bwit.save()
+        return like_bwit
 
 
 class BwitSerializer(serializers.ModelSerializer):
+
+    id = serializers.IntegerField(read_only=True)
     body = serializers.CharField(max_length=20)
     picture = serializers.FileField()
     created_at = serializers.DateTimeField()
@@ -58,6 +71,7 @@ class BwitSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bwit
         fields = (
+            'id',
             'body',
             'picture',
             'created_at',
