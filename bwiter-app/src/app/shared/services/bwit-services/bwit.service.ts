@@ -15,6 +15,10 @@ export class BwitService {
     return this.http.get<Bwit[]>(`${this.DJANGO_SERVER}/api/bwits`).toPromise();
   }
 
+  getUserBwits(id: number): Promise<Bwit[]> {
+    return this.http.get<Bwit[]>(`${this.DJANGO_SERVER}/api/following_bwits/${id}`).toPromise();
+  }
+
   getBwit(id: string): Promise<Bwit> {
     return this.http.get<Bwit>(`${this.DJANGO_SERVER}/api/bwits/${id}`).toPromise();
   }

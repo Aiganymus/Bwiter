@@ -18,7 +18,7 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/profile', 1]"
+        <a class="nav-link" [routerLink]="['/profile', user.id, {outlets: {userPage: 'bwits'}}]"
           ><div class="custom-link"><span>👤</span>Profile</div></a
         >
       </li>
