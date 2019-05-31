@@ -1,0 +1,8 @@
+<app-hodor></app-hodor>
+<ng-container *ngIf="comments">
+    <app-bwit [bwit]="bwit"></app-bwit>
+    <app-create-comment [bwitId]="bwitId"></app-create-comment>
+    <ng-container *ngFor="let comment of comments">
+      <app-comment-entity [comment]="comment"></app-comment-entity>
+    </ng-container>
+</ng-container>

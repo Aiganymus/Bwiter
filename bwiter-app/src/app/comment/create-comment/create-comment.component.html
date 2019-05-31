@@ -1,0 +1,15 @@
+<div *ngIf="user" class="rightcontainer">
+  <div class="posttweetcontainer">
+    <img class="posttweetprofimg" src="{{ user.profile_pic }}">
+    <div class="ml56px">
+      <textarea [(ngModel)]="body" #text name="body" class="posttweettacontainer" placeholder="Бвитнуть в ответ"></textarea>
+      <small *ngIf="body.length > 20 || submitted" id="passwordHelpBlock" class="form-text text-muted">
+        Комментарий не может содержать больше 20 букв. Хочешь больше - плати!
+      </small>
+      <div class="posttweetbutcont">
+        <button type="submit" id="posttweetbut" class="posttweetbut" (click)="submit()">Ответить</button>
+      </div>
+    </div>
+  </div>
+</div>
+

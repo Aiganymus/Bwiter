@@ -1,0 +1,109 @@
+.image{
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+}
+.wrapper {
+  width: 100%;
+  color: #929292;
+}
+
+.card {
+  margin: 0;
+  width: 100%;
+  padding: 0;
+  position: relative;
+//   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22), 0 14px 56px rgba(0, 0, 0, 0.25);
+}
+.card__header {
+  width: 100%;
+  height: 400px;
+  background-repeat: no-repeat;
+}
+.card__image {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 10%;
+  top: 300px;
+  border-radius: 50%;
+  border: 1px solid #cccccc;
+}
+.card__image:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22), 0 14px 56px rgba(0, 0, 0, 0.25);
+}
+.card__image-geoff {
+  background-size: contain;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  z-index: 100;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.card__image-geoff:hover {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+.card__info {
+  width: 100%;
+  height: 0;
+  background-color: #323232;
+}
+.card__info__section-3 {
+  float: left;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.card__info__section-3:last-child {
+  width: 100%;
+}
+
+.card__info__section-3:nth-child(-n+3) .details-bottom {
+  border-right: 1px solid #464646;
+}
+
+.details__number {
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 1em;
+  padding-top: 5px;
+  font-weight: 900;
+}
+.details__text {
+  display: block;
+  text-align: center;
+  font-size: 0.9em;
+
+}
+.details__text-subheader {
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-size: .8em;
+  padding-top: 80px;
+  position: absolute;
+}
+
+.inline{
+    text-align: center;
+    justify-content: center;
+}
+.round{
+    border-radius: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.span6 {
+    width:100%;
+    background-color: aqua;
+}
+.span10{
+    width: 100%;
+    background-color: beige;
+}
